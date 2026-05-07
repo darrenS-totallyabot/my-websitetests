@@ -1,0 +1,1482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shelf Space Crisis — Figures & JDM Diecast</title>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #070a14;
+  --surface: #0c1020;
+  --card: #121828;
+  --card-hover: #18213a;
+  --border: #1e2d50;
+  --border-bright: #2a3f70;
+  --orange: #ff6b1a;
+  --orange-dim: rgba(255,107,26,0.18);
+  --orange-glow: rgba(255,107,26,0.35);
+  --pink: #e91e8c;
+  --pink-dim: rgba(233,30,140,0.15);
+  --blue: #00bfff;
+  --blue-dim: rgba(0,191,255,0.12);
+  --gold: #ffd60a;
+  --gold-dim: rgba(255,214,10,0.15);
+  --text: #eef0f8;
+  --muted: #6a7a9a;
+  --success: #00e87a;
+  --danger: #ff3355;
+  --green-dim: rgba(0,232,122,0.12);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;min-height:100vh;overflow-x:hidden;}
+
+/* Scrollbar */
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:var(--surface);}
+::-webkit-scrollbar-thumb{background:var(--orange);border-radius:3px;}
+
+/* Noise */
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:0.5;}
+
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:100;background:rgba(7,10,20,0.93);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);height:62px;display:flex;align-items:center;padding:0 24px;gap:4px;}
+.logo{font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:17px;letter-spacing:1px;cursor:pointer;display:flex;align-items:center;gap:8px;white-space:nowrap;}
+.logo .shelf{color:var(--text);}
+.logo .space{color:var(--orange);}
+.logo .crisis{color:var(--pink);}
+.logo-badge{font-size:18px;}
+nav .spacer{flex:1;}
+.nav-btn{background:none;border:none;color:var(--muted);font-family:'Chakra Petch',sans-serif;font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;padding:7px 11px;border-radius:4px;transition:all 0.2s;white-space:nowrap;}
+.nav-btn:hover,.nav-btn.active{color:var(--text);background:rgba(255,255,255,0.05);}
+.nav-btn.active{color:var(--orange);}
+.ig-btn{display:flex;align-items:center;gap:6px;background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);color:#fff;border:none;font-family:'Chakra Petch',sans-serif;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:7px 14px;border-radius:4px;cursor:pointer;text-decoration:none;transition:opacity 0.2s;}
+.ig-btn:hover{opacity:0.85;}
+.ig-icon{width:16px;height:16px;flex-shrink:0;}
+.cart-btn{background:var(--orange);color:#fff;border:none;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:12px;letter-spacing:1px;padding:8px 16px;border-radius:4px;cursor:pointer;display:flex;align-items:center;gap:7px;transition:all 0.2s;white-space:nowrap;}
+.cart-btn:hover{background:#ff8540;transform:translateY(-1px);}
+.cart-badge{background:var(--bg);color:var(--orange);border-radius:50%;width:18px;height:18px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;}
+
+/* ── VIEWS ── */
+.view{display:none;padding:36px 28px;max-width:1220px;margin:0 auto;}
+.view.active{display:block;}
+
+/* ── SECTION HEADER ── */
+.s-head{display:flex;align-items:baseline;gap:14px;margin-bottom:26px;padding-bottom:14px;border-bottom:1px solid var(--border);}
+.s-head h2{font-family:'Chakra Petch',sans-serif;font-size:28px;font-weight:700;letter-spacing:0.5px;}
+.s-head .accent{color:var(--orange);}
+.s-head .sub{font-size:12px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;}
+
+/* ── HERO ── */
+.hero{padding:50px 0 44px;position:relative;text-align:center;}
+.hero-eyebrow{font-family:'Chakra Petch',sans-serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:14px;}
+.hero-title{font-family:'Chakra Petch',sans-serif;font-size:clamp(42px,8vw,96px);font-weight:700;line-height:0.92;letter-spacing:-1px;}
+.hero-title .l1{display:block;color:var(--text);}
+.hero-title .l2{display:block;-webkit-text-stroke:2px var(--orange);color:transparent;}
+.hero-title .l3{display:block;color:var(--pink);font-size:0.45em;letter-spacing:6px;-webkit-text-stroke:0;margin-top:8px;}
+.hero-sub{margin-top:22px;color:var(--muted);font-size:14px;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.7;}
+.hero-actions{margin-top:26px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.hero-glow-l{position:absolute;top:40%;left:5%;width:300px;height:300px;background:radial-gradient(circle,var(--orange-dim),transparent 70%);pointer-events:none;}
+.hero-glow-r{position:absolute;top:30%;right:5%;width:250px;height:250px;background:radial-gradient(circle,var(--pink-dim),transparent 70%);pointer-events:none;}
+
+/* ── BUTTONS ── */
+.btn{font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;padding:10px 22px;border-radius:4px;cursor:pointer;transition:all 0.2s;border:none;}
+.btn-orange{background:var(--orange);color:#fff;}
+.btn-orange:hover{background:#ff8540;transform:translateY(-1px);}
+.btn-outline{background:transparent;color:var(--text);border:1px solid var(--border-bright);}
+.btn-outline:hover{border-color:var(--orange);color:var(--orange);}
+.btn-pink{background:var(--pink);color:#fff;}
+.btn-pink:hover{background:#ff40a8;transform:translateY(-1px);}
+.btn-blue{background:var(--blue);color:var(--bg);font-weight:700;}
+.btn-blue:hover{background:#40d4ff;}
+.btn-gold{background:var(--gold);color:var(--bg);font-weight:700;}
+.btn-gold:hover{background:#ffe545;}
+.btn-full{width:100%;}
+.btn-lg{font-size:14px;padding:13px 28px;letter-spacing:2px;}
+
+/* ── PRODUCT GRID ── */
+.product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;}
+.product-card{background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:all 0.25s;position:relative;}
+.product-card:hover{border-color:var(--orange);transform:translateY(-4px);box-shadow:0 12px 44px var(--orange-dim);}
+.product-card.cars:hover{border-color:var(--blue);box-shadow:0 12px 44px var(--blue-dim);}
+.product-card.out{opacity:0.72;}
+.product-card.out:hover{border-color:var(--muted);box-shadow:none;transform:none;}
+.p-img{height:185px;display:flex;align-items:center;justify-content:center;font-size:82px;position:relative;}
+.p-oos-badge{position:absolute;top:10px;right:10px;background:rgba(255,51,85,0.9);color:#fff;font-family:'Chakra Petch',sans-serif;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;border-radius:3px;}
+.p-new-badge{position:absolute;top:10px;left:10px;background:var(--orange);color:#fff;font-family:'Chakra Petch',sans-serif;font-size:10px;font-weight:700;letter-spacing:1px;padding:3px 8px;border-radius:3px;}
+.p-info{padding:14px;}
+.p-series{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:3px;font-family:'Chakra Petch',sans-serif;}
+.p-name{font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:16px;margin-bottom:8px;line-height:1.2;}
+.p-foot{display:flex;align-items:center;justify-content:space-between;gap:6px;}
+.p-price{font-family:'Chakra Petch',sans-serif;font-size:22px;font-weight:700;color:var(--gold);}
+.pts-pill{font-size:10px;font-weight:600;font-family:'Chakra Petch',sans-serif;letter-spacing:1px;color:var(--blue);background:var(--blue-dim);border:1px solid rgba(0,191,255,0.25);padding:3px 8px;border-radius:20px;}
+.p-btn{width:100%;margin-top:10px;padding:9px;background:var(--orange);color:#fff;border:none;font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;border-radius:4px;cursor:pointer;transition:all 0.2s;}
+.p-btn:hover{background:#ff8540;}
+.p-btn.notify{background:transparent;border:1px solid var(--border-bright);color:var(--muted);}
+.p-btn.notify:hover{border-color:var(--blue);color:var(--blue);}
+.p-btn.cars{background:var(--blue);color:var(--bg);}
+.p-btn.cars:hover{background:#40d4ff;}
+
+/* ── TABS ── */
+.tabs{display:flex;gap:8px;margin-bottom:28px;flex-wrap:wrap;}
+.tab{background:var(--card);border:1px solid var(--border);color:var(--muted);font-family:'Chakra Petch',sans-serif;font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:9px 18px;border-radius:4px;cursor:pointer;transition:all 0.2s;}
+.tab.active{background:var(--orange-dim);border-color:var(--orange);color:var(--orange);}
+.tab.cars-tab.active{background:var(--blue-dim);border-color:var(--blue);color:var(--blue);}
+
+/* ── INFO BANNERS ── */
+.info-banner{border-radius:8px;padding:24px 28px;margin-bottom:28px;}
+.banner-orange{background:linear-gradient(135deg,#1a0e04,#1e1408);border:1px solid rgba(255,107,26,0.25);border-left:3px solid var(--orange);}
+.banner-pink{background:linear-gradient(135deg,#1a0412,#1a0818);border:1px solid rgba(233,30,140,0.25);border-left:3px solid var(--pink);}
+.banner-blue{background:linear-gradient(135deg,#04121a,#08181e);border:1px solid rgba(0,191,255,0.22);border-left:3px solid var(--blue);}
+.banner-gold{background:linear-gradient(135deg,#1a1500,#201a00);border:1px solid rgba(255,214,10,0.2);border-left:3px solid var(--gold);}
+.banner-title{font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:18px;letter-spacing:0.5px;margin-bottom:6px;}
+.banner-sub{color:var(--muted);font-size:13px;line-height:1.7;}
+
+/* ── REFERRAL STEPS ── */
+.ref-steps{display:flex;gap:14px;margin-top:18px;flex-wrap:wrap;}
+.ref-step{background:rgba(0,0,0,0.3);border:1px solid rgba(255,107,26,0.2);border-radius:6px;padding:14px 16px;flex:1;min-width:140px;display:flex;gap:10px;align-items:flex-start;}
+.ref-num{font-family:'Chakra Petch',sans-serif;font-size:26px;font-weight:700;color:var(--orange);line-height:1;}
+.ref-text strong{display:block;font-size:13px;color:var(--text);margin-bottom:2px;font-family:'Chakra Petch',sans-serif;}
+.ref-text span{font-size:12px;color:var(--muted);}
+
+/* ── EMAIL SIGNUP ── */
+.signup-row{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;}
+.ssc-input{background:var(--surface);border:1px solid var(--border);color:var(--text);font-family:'Outfit',sans-serif;font-size:14px;padding:10px 14px;border-radius:4px;outline:none;transition:border-color 0.2s;}
+.ssc-input:focus{border-color:var(--orange);}
+.ssc-input.blue:focus{border-color:var(--blue);}
+.ssc-input.pink:focus{border-color:var(--pink);}
+
+/* ── GIVEAWAY VIEW ── */
+.giveaway-hero{background:linear-gradient(135deg,#0e0618,#18060e);border:1px solid rgba(233,30,140,0.3);border-radius:12px;padding:36px;text-align:center;position:relative;overflow:hidden;margin-bottom:28px;}
+.giveaway-hero::before{content:'🎁';font-size:100px;position:absolute;top:-20px;right:-20px;opacity:0.1;}
+.giveaway-hero h2{font-family:'Chakra Petch',sans-serif;font-size:clamp(28px,5vw,52px);font-weight:700;background:linear-gradient(135deg,var(--pink),var(--orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:10px;}
+.giveaway-hero p{color:var(--muted);font-size:14px;max-width:500px;margin:0 auto;line-height:1.7;}
+
+.countdown-box{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:360px;margin:24px auto;}
+.cd-unit{background:rgba(0,0,0,0.4);border:1px solid rgba(233,30,140,0.25);border-radius:6px;padding:14px 8px;text-align:center;}
+.cd-num{font-family:'Chakra Petch',sans-serif;font-size:28px;font-weight:700;color:var(--pink);}
+.cd-lbl{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:2px;}
+
+.giveaway-how{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin:24px 0;}
+.gh-step{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:20px;text-align:center;}
+.gh-icon{font-size:32px;margin-bottom:10px;}
+.gh-title{font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:14px;margin-bottom:6px;}
+.gh-desc{font-size:12px;color:var(--muted);line-height:1.6;}
+
+.entry-form{background:var(--card);border:1px solid rgba(233,30,140,0.3);border-radius:8px;padding:24px;max-width:480px;margin:0 auto;}
+.entry-form h3{font-family:'Chakra Petch',sans-serif;font-size:20px;font-weight:700;margin-bottom:6px;}
+.entry-form p{color:var(--muted);font-size:13px;margin-bottom:18px;}
+.form-field{margin-bottom:14px;}
+.form-label{display:block;font-family:'Chakra Petch',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+.form-input{width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);font-family:'Outfit',sans-serif;font-size:14px;padding:10px 14px;border-radius:4px;outline:none;transition:border-color 0.2s;}
+.form-input:focus{border-color:var(--pink);}
+
+.past-winners{margin-top:40px;}
+.pw-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-top:18px;}
+.pw-card{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:16px;display:flex;align-items:center;gap:14px;}
+.pw-trophy{font-size:28px;}
+.pw-info .pw-name{font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:15px;}
+.pw-info .pw-prize{font-size:12px;color:var(--muted);margin-top:2px;}
+.pw-info .pw-date{font-size:11px;color:var(--orange);margin-top:3px;font-family:'Chakra Petch',sans-serif;letter-spacing:1px;}
+
+/* ── ABOUT VIEW ── */
+.about-layout{display:grid;grid-template-columns:1fr 2fr;gap:36px;}
+@media(max-width:700px){.about-layout{grid-template-columns:1fr;}}
+.about-sidebar{position:sticky;top:80px;align-self:start;}
+.profile-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px;text-align:center;}
+.profile-avatar{font-size:72px;margin-bottom:14px;}
+.profile-name{font-family:'Chakra Petch',sans-serif;font-size:20px;font-weight:700;margin-bottom:4px;}
+.profile-handle{color:var(--orange);font-size:13px;font-family:'Chakra Petch',sans-serif;letter-spacing:1px;}
+.profile-divider{border:none;border-top:1px solid var(--border);margin:18px 0;}
+.profile-stat{display:flex;justify-content:space-between;font-size:13px;padding:6px 0;}
+.profile-stat .ps-label{color:var(--muted);}
+.profile-stat .ps-val{font-family:'Chakra Petch',sans-serif;font-weight:600;color:var(--text);}
+.profile-ig{display:block;margin-top:16px;text-align:center;background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);color:#fff;font-family:'Chakra Petch',sans-serif;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:10px;border-radius:4px;text-decoration:none;transition:opacity 0.2s;}
+.profile-ig:hover{opacity:0.85;}
+
+.interests{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+.interest-tag{background:var(--surface);border:1px solid var(--border);color:var(--muted);font-size:12px;font-family:'Chakra Petch',sans-serif;padding:5px 12px;border-radius:20px;}
+.interest-tag.orange{border-color:var(--orange-dim);color:var(--orange);background:var(--orange-dim);}
+.interest-tag.pink{border-color:var(--pink-dim);color:var(--pink);background:var(--pink-dim);}
+.interest-tag.blue{border-color:var(--blue-dim);color:var(--blue);background:var(--blue-dim);}
+
+.about-content{}
+.about-section{margin-bottom:40px;}
+.about-section h3{font-family:'Chakra Petch',sans-serif;font-size:22px;font-weight:700;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border);}
+.about-section h3 .ah-accent{color:var(--orange);}
+.about-p{color:#b8c0d8;font-size:15px;line-height:1.85;margin-bottom:16px;}
+.about-p strong{color:var(--text);}
+.about-p em{color:var(--orange);font-style:normal;font-weight:600;}
+.about-highlight{background:var(--card);border-left:3px solid var(--orange);border-radius:0 6px 6px 0;padding:16px 20px;margin:20px 0;font-size:14px;color:var(--text);font-style:italic;line-height:1.7;}
+.timeline{border-left:2px solid var(--border);padding-left:24px;margin-top:16px;}
+.tl-item{position:relative;margin-bottom:24px;}
+.tl-item::before{content:'';position:absolute;left:-30px;top:5px;width:10px;height:10px;border-radius:50%;background:var(--orange);border:2px solid var(--bg);}
+.tl-year{font-family:'Chakra Petch',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:4px;}
+.tl-text{font-size:14px;color:#b8c0d8;line-height:1.7;}
+
+/* ── CART VIEW ── */
+.cart-layout{display:grid;grid-template-columns:1fr 380px;gap:24px;}
+@media(max-width:800px){.cart-layout{grid-template-columns:1fr;}}
+.cart-items-col{}
+.cart-empty-state{text-align:center;padding:70px 20px;color:var(--muted);}
+.cart-empty-state .empty-icon{font-size:56px;margin-bottom:16px;}
+.cart-empty-state p{font-size:16px;font-family:'Chakra Petch',sans-serif;}
+.cart-item-card{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:14px 18px;display:flex;align-items:center;gap:14px;margin-bottom:10px;}
+.ci-emoji{font-size:34px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;border-radius:6px;}
+.ci-info{flex:1;}
+.ci-name{font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:15px;margin-bottom:2px;}
+.ci-pts{font-size:11px;color:var(--blue);}
+.ci-price{font-family:'Chakra Petch',sans-serif;font-size:20px;font-weight:700;color:var(--gold);}
+.ci-remove{background:none;border:1px solid var(--border);color:var(--muted);width:28px;height:28px;border-radius:4px;cursor:pointer;font-size:13px;transition:all 0.2s;}
+.ci-remove:hover{border-color:var(--danger);color:var(--danger);}
+
+.order-summary-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:22px;position:sticky;top:80px;}
+.os-title{font-family:'Chakra Petch',sans-serif;font-size:18px;font-weight:700;margin-bottom:18px;}
+.os-line{display:flex;justify-content:space-between;padding:8px 0;font-size:14px;border-bottom:1px solid var(--border);}
+.os-line:last-of-type{border-bottom:none;}
+.os-line.total{font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:17px;color:var(--gold);margin-top:4px;}
+.os-line.discount{color:var(--success);}
+.os-line.pts{color:var(--blue);}
+
+.code-block{margin:16px 0;}
+.code-label{font-family:'Chakra Petch',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:7px;}
+.code-row{display:flex;gap:7px;}
+.code-input{flex:1;background:var(--surface);border:1px solid var(--border);color:var(--text);font-family:'Chakra Petch',sans-serif;font-size:13px;letter-spacing:2px;text-transform:uppercase;padding:9px 13px;border-radius:4px;outline:none;transition:border-color 0.2s;}
+.code-input:focus{border-color:var(--orange);}
+.code-apply{background:var(--surface);border:1px solid var(--border-bright);color:var(--text);font-family:'Chakra Petch',sans-serif;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:9px 14px;border-radius:4px;cursor:pointer;transition:all 0.2s;}
+.code-apply:hover{border-color:var(--orange);color:var(--orange);}
+.email-block{margin:14px 0;}
+.btn-checkout-main{width:100%;margin-top:18px;padding:14px;background:var(--orange);color:#fff;border:none;font-family:'Chakra Petch',sans-serif;font-size:16px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border-radius:4px;cursor:pointer;transition:all 0.2s;}
+.btn-checkout-main:hover{background:#ff8540;}
+
+/* ── ACCOUNT VIEW ── */
+.acct-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+@media(max-width:700px){.acct-grid{grid-template-columns:1fr;}}
+.acct-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:22px;}
+.acct-card-title{font-family:'Chakra Petch',sans-serif;font-size:16px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+.pts-display{text-align:center;padding:16px 0;}
+.pts-number{font-family:'Chakra Petch',sans-serif;font-size:64px;font-weight:700;color:var(--gold);line-height:1;text-shadow:0 0 40px var(--gold-dim);}
+.pts-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-top:4px;font-family:'Chakra Petch',sans-serif;}
+.pts-sub{font-size:12px;color:var(--blue);margin-top:10px;}
+.acct-full{grid-column:1/-1;}
+
+.wl-list{list-style:none;}
+.wl-item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);font-size:13px;}
+.wl-item:last-child{border-bottom:none;}
+.wl-item .wl-rm{margin-left:auto;background:none;border:none;color:var(--muted);cursor:pointer;font-size:13px;transition:color 0.2s;}
+.wl-item .wl-rm:hover{color:var(--danger);}
+
+.order-list{list-style:none;}
+.order-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);font-size:13px;gap:8px;}
+.order-row:last-child{border-bottom:none;}
+.or-name{font-family:'Chakra Petch',sans-serif;font-weight:600;font-size:14px;}
+.or-pts{font-size:11px;color:var(--blue);}
+.or-price{color:var(--gold);font-family:'Chakra Petch',sans-serif;font-weight:700;}
+
+.empty-note{color:var(--muted);font-size:13px;text-align:center;padding:18px 0;}
+
+/* ── ADMIN ── */
+.admin-lock-screen{max-width:380px;margin:60px auto;text-align:center;}
+.admin-lock-screen h2{font-family:'Chakra Petch',sans-serif;font-size:28px;font-weight:700;margin-bottom:8px;}
+.admin-lock-screen p{color:var(--muted);font-size:13px;margin-bottom:22px;}
+
+.admin-header{display:flex;align-items:center;gap:14px;margin-bottom:26px;}
+.admin-header h2{font-family:'Chakra Petch',sans-serif;font-size:28px;font-weight:700;}
+.admin-logout{margin-left:auto;background:none;border:1px solid var(--border);color:var(--muted);font-family:'Chakra Petch',sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;padding:7px 14px;border-radius:4px;cursor:pointer;transition:all 0.2s;}
+.admin-logout:hover{border-color:var(--danger);color:var(--danger);}
+
+.admin-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px;}
+@media(max-width:700px){.admin-stats{grid-template-columns:repeat(2,1fr);}}
+.stat-box{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:14px;text-align:center;}
+.stat-num{font-family:'Chakra Petch',sans-serif;font-size:32px;font-weight:700;color:var(--orange);}
+.stat-lbl{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-top:3px;font-family:'Chakra Petch',sans-serif;}
+
+.admin-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+@media(max-width:900px){.admin-grid{grid-template-columns:1fr;}}
+.admin-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:22px;}
+.admin-card.full{grid-column:1/-1;}
+.admin-card-title{font-family:'Chakra Petch',sans-serif;font-size:16px;font-weight:700;color:var(--orange);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.admin-card-title.blue{color:var(--blue);}
+.admin-card-title.pink{color:var(--pink);}
+.admin-card-title.gold{color:var(--gold);}
+
+.admin-input,.admin-select{width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);font-family:'Outfit',sans-serif;font-size:14px;padding:9px 13px;border-radius:4px;outline:none;margin-bottom:10px;transition:border-color 0.2s;cursor:pointer;}
+.admin-input:focus{border-color:var(--orange);}
+.admin-row{display:flex;gap:10px;margin-bottom:10px;}
+.admin-row .admin-input{margin-bottom:0;}
+
+.gen-code-box{background:var(--surface);border:1px dashed var(--gold);border-radius:6px;padding:16px;text-align:center;margin:14px 0;display:none;}
+.gen-code-val{font-family:'Chakra Petch',sans-serif;font-size:24px;font-weight:700;letter-spacing:4px;color:var(--gold);}
+.gen-code-meta{font-size:12px;color:var(--muted);margin-top:4px;}
+.copy-code-btn{margin-top:8px;background:var(--gold-dim);border:1px solid rgba(255,214,10,0.3);color:var(--gold);font-family:'Chakra Petch',sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;padding:4px 12px;border-radius:3px;cursor:pointer;transition:all 0.2s;}
+.copy-code-btn:hover{background:rgba(255,214,10,0.25);}
+
+.data-table{width:100%;border-collapse:collapse;font-size:13px;}
+.data-table th{font-family:'Chakra Petch',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);text-align:left;padding:7px 10px;border-bottom:1px solid var(--border);}
+.data-table td{padding:9px 10px;border-bottom:1px solid rgba(30,45,80,0.5);font-family:'Chakra Petch',sans-serif;font-size:13px;}
+.data-table tr:last-child td{border-bottom:none;}
+.data-table .code-cell{font-size:14px;letter-spacing:2px;color:var(--gold);}
+.badge{font-size:10px;letter-spacing:1px;padding:2px 7px;border-radius:20px;font-weight:700;font-family:'Chakra Petch',sans-serif;}
+.badge.used{background:rgba(255,51,85,0.15);color:var(--danger);}
+.badge.avail{background:var(--green-dim);color:var(--success);}
+.badge.unlimited{background:var(--gold-dim);color:var(--gold);}
+.badge.limited{background:var(--blue-dim);color:var(--blue);}
+.del-btn{background:none;border:1px solid var(--border);color:var(--muted);font-size:11px;padding:3px 8px;border-radius:3px;cursor:pointer;font-family:'Chakra Petch',sans-serif;transition:all 0.2s;}
+.del-btn:hover{border-color:var(--danger);color:var(--danger);}
+
+/* ── MODAL ── */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.78);backdrop-filter:blur(8px);z-index:200;align-items:center;justify-content:center;}
+.overlay.open{display:flex;}
+.modal{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:30px;max-width:450px;width:90%;box-shadow:0 24px 80px rgba(0,0,0,0.8);animation:pop 0.22s ease;}
+@keyframes pop{from{transform:scale(0.9);opacity:0}to{transform:scale(1);opacity:1}}
+.modal h2{font-family:'Chakra Petch',sans-serif;font-size:24px;font-weight:700;margin-bottom:6px;}
+.modal .modal-sub{color:var(--muted);font-size:13px;margin-bottom:18px;}
+.modal-icon{font-size:50px;text-align:center;display:block;margin-bottom:12px;}
+.modal-actions{display:flex;gap:8px;margin-top:20px;justify-content:flex-end;}
+
+/* ── TOAST ── */
+.toast-wrap{position:fixed;bottom:22px;right:22px;display:flex;flex-direction:column;gap:9px;z-index:9998;}
+.toast{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--orange);border-radius:6px;padding:12px 16px;font-family:'Chakra Petch',sans-serif;font-size:13px;letter-spacing:0.5px;min-width:240px;animation:slideIn 0.25s ease;box-shadow:0 8px 30px rgba(0,0,0,0.6);}
+.toast.success{border-left-color:var(--success);}
+.toast.error{border-left-color:var(--danger);}
+.toast.info{border-left-color:var(--blue);}
+@keyframes slideIn{from{transform:translateX(110%);opacity:0}to{transform:translateX(0);opacity:1}}
+
+/* ── MISC ── */
+.divider{border:none;border-top:1px solid var(--border);margin:32px 0;}
+.text-orange{color:var(--orange);}
+.text-pink{color:var(--pink);}
+.text-blue{color:var(--blue);}
+.text-gold{color:var(--gold);}
+.text-muted{color:var(--muted);}
+a{color:inherit;text-decoration:none;}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════ NAV ══════════════════════════════════ -->
+<nav>
+  <div class="logo" onclick="showView('shop')">
+    <span class="logo-badge">📦</span>
+    <span class="shelf">SHELF</span>&nbsp;<span class="space">SPACE</span>&nbsp;<span class="crisis">CRISIS</span>
+  </div>
+  <div class="spacer"></div>
+  <button class="nav-btn active" id="nav-shop" onclick="showView('shop')">Figures</button>
+  <button class="nav-btn" id="nav-cars" onclick="showView('cars')">JDM Cars</button>
+  <button class="nav-btn" id="nav-giveaways" onclick="showView('giveaways')">Giveaways</button>
+  <button class="nav-btn" id="nav-about" onclick="showView('about')">About</button>
+  <button class="nav-btn" id="nav-account" onclick="showView('account')">Account</button>
+  <button class="nav-btn" id="nav-admin" onclick="showView('admin')">Admin</button>
+  <a class="ig-btn" href="https://www.instagram.com/shelf_.spacecrisis/" target="_blank" rel="noopener">
+    <svg class="ig-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+    @shelf_.spacecrisis
+  </a>
+  <button class="cart-btn" onclick="showView('cart')">
+    🛒 Cart <span class="cart-badge" id="cart-count">0</span>
+  </button>
+</nav>
+
+<!-- ═══════════════════════════════ TOAST WRAP ═══════════════════════════════ -->
+<div class="toast-wrap" id="toasts"></div>
+
+<!-- ═══════════════════════════════ NOTIFY MODAL ═══════════════════════════════ -->
+<div class="overlay" id="notify-overlay">
+  <div class="modal">
+    <span class="modal-icon">🔔</span>
+    <h2>GET NOTIFIED</h2>
+    <p class="modal-sub" id="notify-desc">We'll hit you up the second this drops back in!</p>
+    <div class="form-field">
+      <label class="form-label">Your Name</label>
+      <input class="form-input" type="text" id="n-name" placeholder="Your name">
+    </div>
+    <div class="form-field">
+      <label class="form-label">Email Address</label>
+      <input class="form-input" type="email" id="n-email" placeholder="you@example.com">
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-outline" onclick="closeOverlay('notify-overlay')">Cancel</button>
+      <button class="btn btn-orange" onclick="submitNotify()">Notify Me!</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ SUCCESS MODAL ═══════════════════════════════ -->
+<div class="overlay" id="success-overlay">
+  <div class="modal" style="text-align:center;">
+    <span class="modal-icon">🎉</span>
+    <h2>ORDER PLACED!</h2>
+    <p class="modal-sub" id="success-msg">Thanks for shopping with Shelf Space Crisis!</p>
+    <div class="modal-actions" style="justify-content:center;">
+      <button class="btn btn-orange" onclick="closeOverlay('success-overlay');showView('shop')">Keep Shopping</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ GIVEAWAY ENTERED MODAL ═══════════════════════════════ -->
+<div class="overlay" id="entry-overlay">
+  <div class="modal" style="text-align:center;">
+    <span class="modal-icon">🙌</span>
+    <h2>YOU'RE ENTERED!</h2>
+    <p class="modal-sub">Your entry is locked in! Make sure you follow <strong style="color:var(--pink);">@shelf_.spacecrisis</strong> on Instagram and keep engaging so the algorithm keeps seeing you. Winner announced live on IG!</p>
+    <div class="modal-actions" style="justify-content:center;">
+      <a class="btn btn-pink" href="https://www.instagram.com/shelf_.spacecrisis/" target="_blank">Follow on Instagram</a>
+      <button class="btn btn-outline" onclick="closeOverlay('entry-overlay')">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════
+     SHOP — FIGURES
+════════════════════════════════════════════════════════════ -->
+<div class="view active" id="view-shop">
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-glow-l"></div>
+    <div class="hero-glow-r"></div>
+    <p class="hero-eyebrow">Anime Figures · JDM Diecast · Curated by a Real Enthusiast</p>
+    <h1 class="hero-title">
+      <span class="l1">SHELF SPACE</span>
+      <span class="l2">CRISIS</span>
+      <span class="l3">because one shelf is never enough</span>
+    </h1>
+    <p class="hero-sub">Every piece in here I'd put on my own shelf. Run by a collector, for collectors — no fakes, no middlemen, just the good stuff.</p>
+    <div class="hero-actions">
+      <button class="btn btn-orange btn-lg" onclick="document.getElementById('figures-grid').scrollIntoView({behavior:'smooth'})">Browse Figures</button>
+      <button class="btn btn-outline btn-lg" onclick="showView('cars')">Shop JDM Cars</button>
+    </div>
+  </div>
+
+  <!-- Newsletter Banner -->
+  <div class="info-banner banner-blue" style="display:flex;align-items:center;gap:24px;flex-wrap:wrap;">
+    <div>
+      <div class="banner-title text-blue">📧 NEVER MISS A DROP</div>
+      <div class="banner-sub">Get emailed the second a sold-out figure or new car hits the site.</div>
+    </div>
+    <div style="flex:1;"></div>
+    <div class="signup-row" style="margin-top:0;">
+      <input class="ssc-input blue" style="width:240px;" type="email" id="global-email" placeholder="your@email.com">
+      <button class="btn btn-blue" onclick="globalSignup()">Subscribe</button>
+    </div>
+  </div>
+
+  <!-- Referral Banner -->
+  <div class="info-banner banner-orange">
+    <div class="banner-title">🤝 THE REFERRAL PROGRAM — 3 TIERS, ALL LEGIT</div>
+    <div class="banner-sub">Here's how discounts work around here — no smoke and mirrors.</div>
+    <div class="ref-steps">
+      <div class="ref-step"><div class="ref-num">1</div><div class="ref-text"><strong>5 Friends DM Us</strong><span>Get them to DM <a href="https://www.instagram.com/shelf_.spacecrisis/" target="_blank" style="color:var(--orange);">@shelf_.spacecrisis</a> saying your name + "wants this figure". We verify and send you a <em style="color:var(--gold);">one-time $10 code.</em></span></div></div>
+      <div class="ref-step"><div class="ref-num">2</div><div class="ref-text"><strong>Friends & Family</strong><span>If you're in our inner circle, we'll hook you up with a personal discount code that works every time you shop. Just ask.</span></div></div>
+      <div class="ref-step"><div class="ref-num">3</div><div class="ref-text"><strong>Points = Rewards</strong><span>Earn <em style="color:var(--gold);">1 point per dollar</em> on every purchase. 100 points = $1 off. Buy more, save more, automatically.</span></div></div>
+    </div>
+  </div>
+
+  <div class="s-head" id="figures-grid">
+    <h2>ANIME <span class="accent">FIGURES</span></h2>
+    <span class="sub" id="fig-count">8 ITEMS</span>
+  </div>
+  <div class="product-grid" id="product-grid-figures"></div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════
+     CARS
+════════════════════════════════════════════════════════════ -->
+<div class="view" id="view-cars">
+  <div class="hero" style="padding:36px 0 30px;">
+    <div class="hero-glow-l" style="background:radial-gradient(circle,var(--blue-dim),transparent 70%);"></div>
+    <p class="hero-eyebrow" style="color:var(--blue);">1:64 Scale · JDM Legends · 90s Icons</p>
+    <h1 class="hero-title">
+      <span class="l1">JDM</span>
+      <span class="l2" style="-webkit-text-stroke-color:var(--blue);">DIECAST</span>
+      <span class="l3" style="color:var(--blue);">the cars we'll never stop loving</span>
+    </h1>
+    <p class="hero-sub">I've been obsessed with 90s JDM my whole life. These little cars hit different — 1:64 scale, real car, real love.</p>
+  </div>
+
+  <div class="info-banner banner-blue">
+    <div class="banner-title text-blue">🚗 WHY 1:64 SCALE?</div>
+    <div class="banner-sub">It's the perfect size. You can have a whole garage on one shelf. They're affordable, detailed, and actually easy to display. Bonus: they don't cause as much shelf space crisis as the big figures do. <em style="color:var(--blue);">...usually.</em></div>
+  </div>
+
+  <div class="s-head">
+    <h2 style="color:var(--blue);">JDM <span style="color:var(--text);">LEGENDS</span></h2>
+    <span class="sub" id="cars-count">7 CARS</span>
+  </div>
+  <div class="product-grid" id="product-grid-cars"></div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════
+     GIVEAWAYS
+════════════════════════════════════════════════════════════ -->
+<div class="view" id="view-giveaways">
+  <div class="giveaway-hero">
+    <h2>🎁 MONTHLY GIVEAWAYS</h2>
+    <p>Every month (or so — real talk, life happens), I pick a random winner from everyone who followed and engaged on Instagram. No purchase necessary, just show love on the page.</p>
+    <div class="countdown-box" id="countdown-box">
+      <div class="cd-unit"><div class="cd-num" id="cd-d">00</div><div class="cd-lbl">Days</div></div>
+      <div class="cd-unit"><div class="cd-num" id="cd-h">00</div><div class="cd-lbl">Hours</div></div>
+      <div class="cd-unit"><div class="cd-num" id="cd-m">00</div><div class="cd-lbl">Mins</div></div>
+      <div class="cd-unit"><div class="cd-num" id="cd-s">00</div><div class="cd-lbl">Secs</div></div>
+    </div>
+    <p id="current-giveaway-prize" style="color:var(--pink);font-family:'Chakra Petch',sans-serif;font-size:14px;letter-spacing:1px;margin-top:8px;"></p>
+  </div>
+
+  <div class="s-head"><h2>HOW TO <span class="accent">ENTER</span></h2></div>
+  <div class="giveaway-how">
+    <div class="gh-step"><div class="gh-icon">📱</div><div class="gh-title">Follow on Instagram</div><div class="gh-desc">Follow <a href="https://www.instagram.com/shelf_.spacecrisis/" target="_blank" style="color:var(--pink);">@shelf_.spacecrisis</a>. You gotta be following to be eligible — we check!</div></div>
+    <div class="gh-step"><div class="gh-icon">❤️</div><div class="gh-title">Like & Comment</div><div class="gh-desc">Like the giveaway post and drop a comment. More engagement = IG pushes the account further. You help me, I help you.</div></div>
+    <div class="gh-step"><div class="gh-icon">📤</div><div class="gh-title">Share to Story</div><div class="gh-desc">Share the giveaway post to your IG story for a bonus entry. Tag <a href="https://www.instagram.com/shelf_.spacecrisis/" target="_blank" style="color:var(--pink);">@shelf_.spacecrisis</a>!</div></div>
+    <div class="gh-step"><div class="gh-icon">✉️</div><div class="gh-title">Register Here</div><div class="gh-desc">Drop your email + IG handle below so I can find you when you win. Not for spam — pinky promise.</div></div>
+  </div>
+
+  <div class="entry-form">
+    <h3>🙋 ENTER THIS MONTH'S GIVEAWAY</h3>
+    <p>Fill this out and make sure you're following on Instagram — both required to win.</p>
+    <div class="form-field">
+      <label class="form-label">Your Name</label>
+      <input class="form-input" type="text" id="gwa-name" placeholder="First name is fine">
+    </div>
+    <div class="form-field">
+      <label class="form-label">Email Address</label>
+      <input class="form-input" type="email" id="gwa-email" placeholder="we'll email you if you win">
+    </div>
+    <div class="form-field">
+      <label class="form-label">Instagram Handle</label>
+      <input class="form-input" type="text" id="gwa-ig" placeholder="@yourhandle">
+    </div>
+    <button class="btn btn-pink btn-full btn-lg" style="margin-top:6px;" onclick="enterGiveaway()">🎉 Submit My Entry</button>
+    <p style="font-size:11px;color:var(--muted);margin-top:10px;text-align:center;">Winners announced live on Instagram. One entry per person per giveaway.</p>
+  </div>
+
+  <div class="past-winners">
+    <div class="s-head"><h2>PAST <span class="accent">WINNERS</span></h2></div>
+    <div class="pw-grid" id="past-winners-grid"></div>
+    <div class="empty-note" id="winners-empty" style="display:none;">No past winners yet — be the first! 🏆</div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════
+     ABOUT
+════════════════════════════════════════════════════════════ -->
+<div class="view" id="view-about">
+  <div class="s-head"><h2>ABOUT <span class="accent">ME</span></h2></div>
+  <div class="about-layout">
+    <!-- Sidebar -->
+    <div class="about-sidebar">
+      <div class="profile-card">
+        <div class="profile-avatar">🫡</div>
+        <div class="profile-name">Shelf Space Crisis</div>
+        <div class="profile-handle">@shelf_.spacecrisis</div>
+        <hr class="profile-divider">
+        <div class="profile-stat"><span class="ps-label">Age</span><span class="ps-val">22</span></div>
+        <div class="profile-stat"><span class="ps-label">Based in</span><span class="ps-val">🇵🇭 → 🇺🇸</span></div>
+        <div class="profile-stat"><span class="ps-label">First Figure</span><span class="ps-val">SHF Gojo</span></div>
+        <div class="profile-stat"><span class="ps-label">Dream Car</span><span class="ps-val">90s JDM 🔥</span></div>
+        <div class="profile-stat"><span class="ps-label">Shelf Space</span><span class="ps-val">Not enough 😅</span></div>
+        <a class="profile-ig" href="https://www.instagram.com/shelf_.spacecrisis/" target="_blank">
+          <svg style="width:14px;height:14px;display:inline;margin-right:6px;vertical-align:middle;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          Follow on Instagram
+        </a>
+        <div class="interests" style="margin-top:16px;justify-content:center;">
+          <span class="interest-tag orange">Anime</span>
+          <span class="interest-tag blue">JDM Cars</span>
+          <span class="interest-tag pink">Figures</span>
+          <span class="interest-tag">Philippines 🇵🇭</span>
+          <span class="interest-tag orange">Collector</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="about-content">
+      <div class="about-section">
+        <h3>HOW THIS ALL <span class="ah-accent">STARTED</span></h3>
+        <p class="about-p">Real talk — I started this because I genuinely couldn't stop buying figures and cars, and my room looks like a museum that ran out of budget for proper shelving. <em>Hence the name.</em> But the story goes back way further than that.</p>
+        <p class="about-p">I grew up in the Philippines, and if you know, you know — the toys out there are cool but they hit different when you compare them to what was coming out of Japan and the US. My neighbors had the newest stuff. Like actually new stuff. And I remember being a kid just thinking <strong>"man I wish I had that."</strong> I did get toys — don't get me wrong, my family made sure birthdays and Christmas hit — but it wasn't like my neighbor who seemed to get something new every other week. That kind of stuck with me.</p>
+        <div class="about-highlight">"Growing up, toys felt like a privilege. Now that I can buy them myself, I'm making up for lost time — and yeah, my shelf situation is definitely paying the price."</div>
+        <p class="about-p">Fast forward to me finally being able to work and earn my own money. The first figure I ever bought with my own cash was the <em>S.H.Figuarts Gojo Satoru</em> — the original, from back when it first dropped. I remember holding it and thinking this was the coolest thing I'd ever owned. That was it. That was the moment I was gone. No going back.</p>
+      </div>
+
+      <div class="about-section">
+        <h3>THE <span class="ah-accent">FIGURE</span> SIDE</h3>
+        <p class="about-p">Since that first Gojo, I've been deep in the figure game. SHF, Nendoroids, prize figures, scale figures — I'm not picky as long as it looks incredible on a shelf. I genuinely research what I buy. I'm not just flipping stuff, I'm a fan first. Every figure I sell is something I'd either own already or put on my own shelf without hesitation.</p>
+        <p class="about-p">I know what bad quality looks like, I know what the good manufacturers are, and I'm not about wasting your money on something that's going to look rough after two months. If it's in the store, it's passed my own standard first.</p>
+        <div class="timeline">
+          <div class="tl-item"><div class="tl-year">The beginning</div><div class="tl-text">First SHF Gojo. The one that started everything. Sat on my desk and I just stared at it for like 20 minutes.</div></div>
+          <div class="tl-item"><div class="tl-year">The deep end</div><div class="tl-text">Started collecting more seriously. Learned the difference between scale figures, prize figures, and the premium stuff. Opinions were formed. Money disappeared.</div></div>
+          <div class="tl-item"><div class="tl-year">Shelf Space Crisis</div><div class="tl-text">The name came naturally. My room is literally a crisis. Started the Instagram, started selling some pieces, and here we are.</div></div>
+        </div>
+      </div>
+
+      <div class="about-section">
+        <h3>THE <span class="ah-accent">CAR</span> SIDE</h3>
+        <p class="about-p">Parallel to the figure obsession is the car obsession. Specifically <em>90s JDM</em>. Skylines, Supras, AE86s, NSXs, RX-7s — the era before everything got too perfect and digital. Cars that had character, that you could hear, that <strong>meant something.</strong></p>
+        <p class="about-p">I collect 1:64 scale diecasts of these cars because, well, the real things are either impossible to find or astronomically priced. But the little ones? You can have a whole fleet on one shelf. They're detailed, they're satisfying, and they let you appreciate the design in a way that you can actually hold in your hand.</p>
+        <p class="about-p">The cars section here is an extension of that love. Same philosophy as the figures — I wouldn't sell anything I wouldn't keep myself.</p>
+      </div>
+
+      <div class="about-section">
+        <h3>WHY BUY <span class="ah-accent">FROM HERE</span>?</h3>
+        <p class="about-p">Honestly? Because I'm you. I'm not a big corporation that just sources whatever sells. I'm a 22-year-old who grew up wishing he had the toys his neighbors had, who finally got to start his own collection, and who wants to share that joy with other people who get it.</p>
+        <p class="about-p">The giveaways exist because I want the community around this page to feel like something real — not just another resell account. Stick around on Instagram, interact, show up — and you'll get looked after. That's the vibe here.</p>
+        <div class="about-highlight">"This isn't just a store. It's my hobby turned into something I can share. Come for the figures and cars, stay for the community."</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════
+     CART
+════════════════════════════════════════════════════════════ -->
+<div class="view" id="view-cart">
+  <div class="s-head"><h2>YOUR <span class="accent">CART</span></h2></div>
+  <div id="cart-empty-state" class="cart-empty-state" style="display:none;">
+    <div class="empty-icon">🛒</div>
+    <p>Cart's empty — go find something!</p>
+    <button class="btn btn-orange" style="margin-top:18px;" onclick="showView('shop')">Browse Figures</button>
+  </div>
+  <div class="cart-layout" id="cart-main">
+    <div class="cart-items-col">
+      <div id="cart-items-list"></div>
+    </div>
+    <div class="order-summary-card">
+      <div class="os-title">ORDER SUMMARY</div>
+      <div class="os-line"><span>Subtotal</span><span id="os-subtotal">$0.00</span></div>
+      <div class="os-line discount" id="os-disc-line" style="display:none;"><span>🏷️ Discount</span><span id="os-disc">-$0.00</span></div>
+      <div class="os-line pts"><span>⭐ Points to Earn</span><span id="os-pts">0</span></div>
+      <div class="os-line total"><span>TOTAL</span><span id="os-total">$0.00</span></div>
+      <div class="code-block">
+        <span class="code-label">Discount Code</span>
+        <div class="code-row">
+          <input class="code-input" type="text" id="code-input" placeholder="YOUR-CODE">
+          <button class="code-apply" onclick="applyCode()">Apply</button>
+        </div>
+        <div id="code-msg" style="font-size:12px;margin-top:6px;color:var(--muted);font-family:'Chakra Petch',sans-serif;"></div>
+      </div>
+      <div class="email-block">
+        <span class="code-label">Your Email</span>
+        <input class="ssc-input" style="width:100%;" type="email" id="checkout-email" placeholder="required for order confirmation">
+      </div>
+      <button class="btn-checkout-main" onclick="checkout()">COMPLETE ORDER →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════
+     ACCOUNT
+════════════════════════════════════════════════════════════ -->
+<div class="view" id="view-account">
+  <div class="s-head"><h2>MY <span class="accent">ACCOUNT</span></h2></div>
+  <div style="display:flex;gap:8px;margin-bottom:24px;align-items:flex-end;">
+    <div>
+      <label style="display:block;font-family:'Chakra Petch',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:7px;">Your Email</label>
+      <input class="ssc-input" id="acct-email-input" type="email" placeholder="you@example.com" style="width:300px;">
+    </div>
+    <button class="btn btn-orange" onclick="loadAccount()">Load Account</button>
+  </div>
+  <div class="acct-grid" id="acct-grid">
+    <div class="acct-card">
+      <div class="acct-card-title">⭐ VAULT POINTS</div>
+      <div class="pts-display">
+        <div class="pts-number" id="acct-pts">0</div>
+        <div class="pts-label">Points</div>
+        <div class="pts-sub" id="acct-pts-sub">Start shopping to earn!</div>
+      </div>
+      <p style="font-size:12px;color:var(--muted);text-align:center;line-height:1.7;">1 point per dollar · 100 pts = $1 off · Points build automatically with every order.</p>
+    </div>
+    <div class="acct-card">
+      <div class="acct-card-title">🔔 WATCHLIST</div>
+      <p style="font-size:12px;color:var(--muted);margin-bottom:14px;">You'll be notified when these are back in stock.</p>
+      <ul class="wl-list" id="acct-watchlist"><li class="empty-note">Nothing on your watchlist yet.</li></ul>
+    </div>
+    <div class="acct-card acct-full">
+      <div class="acct-card-title">📦 ORDER HISTORY</div>
+      <ul class="order-list" id="acct-orders"><li class="empty-note">No orders yet — let's fix that!</li></ul>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════
+     ADMIN
+════════════════════════════════════════════════════════════ -->
+<div class="view" id="view-admin">
+  <div id="admin-lock-screen" class="admin-lock-screen">
+    <div style="font-size:48px;margin-bottom:16px;">🔐</div>
+    <h2>ADMIN ACCESS</h2>
+    <p>Shelf Space Crisis dashboard — owner only.</p>
+    <input class="admin-input" type="password" id="admin-pw" placeholder="Password" style="max-width:280px;display:block;margin:0 auto 12px;" onkeydown="if(event.key==='Enter')adminLogin()">
+    <button class="btn btn-orange" onclick="adminLogin()">Unlock</button>
+    <p style="margin-top:14px;font-size:12px;color:var(--muted);">Default: <code style="color:var(--orange);">shelfcrisis</code></p>
+  </div>
+
+  <div id="admin-dashboard" style="display:none;">
+    <div class="admin-header">
+      <div style="font-size:24px;">🛠️</div>
+      <h2>DASHBOARD</h2>
+      <button class="admin-logout" onclick="adminLogout()">Logout</button>
+    </div>
+
+    <div class="admin-stats">
+      <div class="stat-box"><div class="stat-num" id="st-codes">0</div><div class="stat-lbl">Total Codes</div></div>
+      <div class="stat-box"><div class="stat-num" id="st-avail">0</div><div class="stat-lbl">Available</div></div>
+      <div class="stat-box"><div class="stat-num" id="st-used">0</div><div class="stat-lbl">Redeemed</div></div>
+      <div class="stat-box"><div class="stat-num" id="st-subs">0</div><div class="stat-lbl">Subscribers</div></div>
+    </div>
+
+    <div class="admin-grid">
+
+      <!-- GENERATE CODE -->
+      <div class="admin-card">
+        <div class="admin-card-title">🎟️ GENERATE DISCOUNT CODE</div>
+        <p style="font-size:12px;color:var(--muted);margin-bottom:14px;">Create a code with full control over amount, type, and usage limits.</p>
+        <label style="font-family:'Chakra Petch',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px;">Note / Who It's For</label>
+        <input class="admin-input" id="gen-note" placeholder="e.g. Maria – referral reward">
+        <div class="admin-row">
+          <div style="flex:1;">
+            <label style="font-family:'Chakra Petch',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px;">Discount Type</label>
+            <select class="admin-select" id="gen-type" style="margin-bottom:0;">
+              <option value="flat">$ Flat Amount (e.g. $10 off)</option>
+              <option value="pct">% Percentage (e.g. 15% off)</option>
+            </select>
+          </div>
+          <div style="width:100px;">
+            <label style="font-family:'Chakra Petch',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px;">Amount</label>
+            <input class="admin-input" id="gen-amount" type="number" value="10" min="1" max="999" style="margin-bottom:0;">
+          </div>
+        </div>
+        <div style="margin:10px 0;">
+          <label style="font-family:'Chakra Petch',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px;">Usage Limit</label>
+          <select class="admin-select" id="gen-usage" onchange="toggleUsageLimit()">
+            <option value="once">One-Time Use (referral codes)</option>
+            <option value="limited">Limited Uses (set below)</option>
+            <option value="unlimited">Unlimited (Friends & Family)</option>
+          </select>
+          <input class="admin-input" id="gen-uses" type="number" value="5" min="2" placeholder="Number of uses" style="display:none;">
+        </div>
+        <label style="font-family:'Chakra Petch',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px;">Lock to Email (optional)</label>
+        <input class="admin-input" id="gen-email" type="email" placeholder="Leave blank = anyone can use it">
+        <button class="btn btn-orange btn-full" onclick="generateCode()">⚡ Generate Code</button>
+        <div class="gen-code-box" id="gen-code-box">
+          <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);">NEW CODE</div>
+          <div class="gen-code-val" id="gen-code-val"></div>
+          <div class="gen-code-meta" id="gen-code-meta"></div>
+          <button class="copy-code-btn" onclick="copyCode()">📋 Copy Code</button>
+        </div>
+      </div>
+
+      <!-- STOCK MANAGEMENT -->
+      <div class="admin-card">
+        <div class="admin-card-title blue">📦 STOCK MANAGEMENT</div>
+        <p style="font-size:12px;color:var(--muted);margin-bottom:14px;">Update stock status and alert watchers. In production this would trigger real emails.</p>
+        <label style="font-family:'Chakra Petch',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px;">Product</label>
+        <select class="admin-select" id="stock-product"></select>
+        <label style="font-family:'Chakra Petch',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px;">New Status</label>
+        <select class="admin-select" id="stock-status">
+          <option value="in">✅ Mark IN STOCK</option>
+          <option value="out">❌ Mark OUT OF STOCK</option>
+        </select>
+        <button class="btn btn-blue btn-full" onclick="updateStock()">Update & Alert Watchers</button>
+        <div id="stock-result" style="font-size:12px;color:var(--blue);margin-top:10px;display:none;"></div>
+
+        <hr class="divider" style="margin:20px 0;">
+        <div class="admin-card-title pink" style="margin-bottom:12px;font-size:14px;">🎁 GIVEAWAY MANAGEMENT</div>
+        <label style="font-family:'Chakra Petch',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px;">Current Giveaway Prize</label>
+        <input class="admin-input" id="gw-prize" placeholder="e.g. Rem 1/8 Scale Statue">
+        <label style="font-family:'Chakra Petch',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px;">Giveaway End Date</label>
+        <input class="admin-input" type="date" id="gw-end">
+        <button class="btn btn-pink btn-full" onclick="updateGiveaway()" style="margin-bottom:8px;">Update Giveaway</button>
+        <button class="btn btn-gold btn-full" onclick="pickWinner()">🎲 Pick Random Winner</button>
+        <div id="gw-result" style="font-size:12px;color:var(--pink);margin-top:10px;display:none;"></div>
+      </div>
+
+      <!-- CODES TABLE -->
+      <div class="admin-card full">
+        <div class="admin-card-title gold">🗂️ ALL DISCOUNT CODES</div>
+        <div style="overflow-x:auto;">
+          <table class="data-table" id="codes-table">
+            <thead>
+              <tr>
+                <th>Code</th><th>Type</th><th>Amount</th><th>Usage</th><th>Used</th><th>Locked To</th><th>Note</th><th>Created</th><th></th>
+              </tr>
+            </thead>
+            <tbody id="codes-tbody"></tbody>
+          </table>
+          <div class="empty-note" id="codes-empty" style="display:none;">No codes yet — generate one above!</div>
+        </div>
+      </div>
+
+      <!-- EMAIL / SUBSCRIBER TABLE -->
+      <div class="admin-card full">
+        <div class="admin-card-title blue">📧 SUBSCRIBERS & CUSTOMERS</div>
+        <div style="overflow-x:auto;">
+          <table class="data-table" id="subs-table">
+            <thead>
+              <tr><th>Name / Email</th><th>Watchlist</th><th>Orders</th><th>Points</th><th>Source</th><th>Date</th></tr>
+            </thead>
+            <tbody id="subs-tbody"></tbody>
+          </table>
+          <div class="empty-note" id="subs-empty" style="display:none;">No subscribers yet.</div>
+        </div>
+      </div>
+
+      <!-- GIVEAWAY ENTRIES -->
+      <div class="admin-card full">
+        <div class="admin-card-title pink">🎉 GIVEAWAY ENTRIES</div>
+        <div style="overflow-x:auto;">
+          <table class="data-table" id="entries-table">
+            <thead>
+              <tr><th>Name</th><th>Email</th><th>Instagram</th><th>Entered</th></tr>
+            </thead>
+            <tbody id="entries-tbody"></tbody>
+          </table>
+          <div class="empty-note" id="entries-empty" style="display:none;">No entries yet.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════
+//  PRODUCT DATA
+// ═══════════════════════════════════════════════════════
+
+const FIGURES = [
+  {id:'f1',emoji:'🥷',name:'Gojo Satoru (SHF)',series:'Jujutsu Kaisen',price:69.99,inStock:true,bg:'linear-gradient(135deg,#06060f,#1a0a2e)',isNew:true},
+  {id:'f2',emoji:'🗡️',name:'Tanjiro Kamado (SHF)',series:'Demon Slayer',price:54.99,inStock:true,bg:'linear-gradient(135deg,#0a0414,#1e0a28)'},
+  {id:'f3',emoji:'🌊',name:'Roronoa Zoro',series:'One Piece DXF',price:44.99,inStock:true,bg:'linear-gradient(135deg,#061006,#0a2010)'},
+  {id:'f4',emoji:'⚡',name:'Naruto Uzumaki (Nendoroid)',series:'Naruto Shippuden',price:49.99,inStock:false,bg:'linear-gradient(135deg,#141000,#2a2200)'},
+  {id:'f5',emoji:'🏯',name:'Levi Ackermann (SHF)',series:'Attack on Titan',price:64.99,inStock:true,bg:'linear-gradient(135deg,#0a0c10,#151e2e)'},
+  {id:'f6',emoji:'🔥',name:'Todoroki Shoto',series:'My Hero Academia',price:52.99,inStock:false,bg:'linear-gradient(135deg,#0a0612,#180a20)'},
+  {id:'f7',emoji:'🎭',name:'Spike Spiegel',series:'Cowboy Bebop',price:74.99,inStock:true,bg:'linear-gradient(135deg,#080c14,#12182a)',isNew:true},
+  {id:'f8',emoji:'🌸',name:'Sakura Haruno',series:'Naruto — Kotobukiya',price:89.99,inStock:true,bg:'linear-gradient(135deg,#120610,#1e0e1c)'},
+];
+
+const CARS = [
+  {id:'c1',emoji:'🏎️',name:'Toyota AE86 Trueno',series:'1:64 Scale · Tomica',price:12.99,inStock:true,bg:'linear-gradient(135deg,#080c14,#0e1828)'},
+  {id:'c2',emoji:'💙',name:'Nissan Skyline R34 GT-R',series:'1:64 Scale · Hot Wheels',price:14.99,inStock:true,bg:'linear-gradient(135deg,#060c1a,#0a1230)',isNew:true},
+  {id:'c3',emoji:'🏁',name:'Toyota Supra MK4',series:'1:64 Scale · Mini GT',price:13.99,inStock:true,bg:'linear-gradient(135deg,#0a0800,#1a1400)'},
+  {id:'c4',emoji:'🔴',name:'Honda NSX Type R',series:'1:64 Scale · Tomica',price:15.99,inStock:false,bg:'linear-gradient(135deg,#1a0400,#2a0800)'},
+  {id:'c5',emoji:'🌀',name:'Mazda RX-7 FD',series:'1:64 Scale · Mini GT',price:13.99,inStock:true,bg:'linear-gradient(135deg,#1a0606,#2a0c0c)'},
+  {id:'c6',emoji:'⚡',name:'Mitsubishi Lancer Evo VI',series:'1:64 Scale · Hot Wheels',price:12.99,inStock:true,bg:'linear-gradient(135deg,#060a1a,#0a102a)'},
+  {id:'c7',emoji:'🌙',name:'Nissan 180SX Kouki',series:'1:64 Scale · Tomica',price:11.99,inStock:false,bg:'linear-gradient(135deg,#0c0c10,#181820)'},
+];
+
+// ═══════════════════════════════════════════════════════
+//  STORAGE HELPERS
+// ═══════════════════════════════════════════════════════
+const K = 'ssc_';
+const ls = {
+  get:(k,d)=>{try{const v=localStorage.getItem(K+k);return v?JSON.parse(v):d;}catch{return d;}},
+  set:(k,v)=>localStorage.setItem(K+k,JSON.stringify(v))
+};
+
+const getCodes=()=>ls.get('codes',[]);
+const saveCodes=c=>ls.set('codes',c);
+const getUsers=()=>ls.get('users',{});
+const saveUsers=u=>ls.set('users',u);
+const getCart=()=>ls.get('cart',[]);
+const saveCart=c=>ls.set('cart',c);
+const getSubs=()=>ls.get('subs',[]);
+const saveSubs=s=>ls.set('subs',s);
+const getStock=()=>ls.get('stock',Object.fromEntries([...FIGURES,...CARS].map(p=>[p.id,p.inStock])));
+const saveStock=s=>ls.set('stock',s);
+const getEntries=()=>ls.get('entries',[]);
+const saveEntries=e=>ls.set('entries',e);
+const getGiveaway=()=>ls.get('giveaway',{prize:'Anime Statue Mystery Box',end:new Date(Date.now()+25*24*3600000).toISOString()});
+const saveGiveaway=g=>ls.set('giveaway',g);
+const getWinners=()=>ls.get('winners',[]);
+const saveWinners=w=>ls.set('winners',w);
+
+// ═══════════════════════════════════════════════════════
+//  NAV
+// ═══════════════════════════════════════════════════════
+let currentView = 'shop';
+function showView(v){
+  document.querySelectorAll('.view').forEach(e=>e.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(e=>e.classList.remove('active'));
+  document.getElementById('view-'+v).classList.add('active');
+  const nb=document.getElementById('nav-'+v);
+  if(nb) nb.classList.add('active');
+  currentView=v;
+  if(v==='shop') renderFigures();
+  if(v==='cars') renderCars();
+  if(v==='giveaways') renderGiveaways();
+  if(v==='cart') renderCart();
+  if(v==='admin') renderAdmin();
+  if(v==='about') {}
+  window.scrollTo(0,0);
+}
+
+// ═══════════════════════════════════════════════════════
+//  RENDER FIGURES
+// ═══════════════════════════════════════════════════════
+function renderFigures(){
+  const stock=getStock();
+  const grid=document.getElementById('product-grid-figures');
+  grid.innerHTML=FIGURES.map(p=>{
+    const inStock=stock[p.id];
+    const pts=Math.floor(p.price);
+    return `<div class="product-card ${inStock?'':'out'}">
+      <div class="p-img" style="background:${p.bg}">
+        ${p.isNew?'<div class="p-new-badge">NEW</div>':''}
+        ${!inStock?'<div class="p-oos-badge">Out of Stock</div>':''}
+        ${p.emoji}
+      </div>
+      <div class="p-info">
+        <div class="p-series">${p.series}</div>
+        <div class="p-name">${p.name}</div>
+        <div class="p-foot"><div class="p-price">$${p.price.toFixed(2)}</div><div class="pts-pill">+${pts} pts</div></div>
+        ${inStock
+          ? `<button class="p-btn" onclick="addToCart('${p.id}','figures')">Add to Cart</button>`
+          : `<button class="p-btn notify" onclick="openNotify('${p.id}','${p.name}')">🔔 Notify Me</button>`}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ═══════════════════════════════════════════════════════
+//  RENDER CARS
+// ═══════════════════════════════════════════════════════
+function renderCars(){
+  const stock=getStock();
+  const grid=document.getElementById('product-grid-cars');
+  grid.innerHTML=CARS.map(p=>{
+    const inStock=stock[p.id];
+    const pts=Math.floor(p.price);
+    return `<div class="product-card cars ${inStock?'':'out'}">
+      <div class="p-img" style="background:${p.bg}">
+        ${p.isNew?'<div class="p-new-badge" style="background:var(--blue);">NEW</div>':''}
+        ${!inStock?'<div class="p-oos-badge">Out of Stock</div>':''}
+        ${p.emoji}
+      </div>
+      <div class="p-info">
+        <div class="p-series" style="color:var(--blue);">${p.series}</div>
+        <div class="p-name">${p.name}</div>
+        <div class="p-foot"><div class="p-price">$${p.price.toFixed(2)}</div><div class="pts-pill">+${pts} pts</div></div>
+        ${inStock
+          ? `<button class="p-btn cars" onclick="addToCart('${p.id}','cars')">Add to Cart</button>`
+          : `<button class="p-btn notify" onclick="openNotify('${p.id}','${p.name}')">🔔 Notify Me</button>`}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ═══════════════════════════════════════════════════════
+//  CART
+// ═══════════════════════════════════════════════════════
+let appliedCode = null;
+
+function addToCart(id, type){
+  const all = [...FIGURES,...CARS];
+  const p = all.find(x=>x.id===id);
+  const stock = getStock();
+  if(!stock[id]){ toast('Out of stock!','error'); return; }
+  const cart = getCart();
+  const idx = cart.findIndex(c=>c.id===id);
+  if(idx>=0) cart[idx].qty++;
+  else cart.push({id,qty:1,type});
+  saveCart(cart);
+  updateCartBadge();
+  toast(`${p.emoji} ${p.name} added to cart!`);
+}
+
+function updateCartBadge(){
+  const n = getCart().reduce((s,c)=>s+c.qty,0);
+  document.getElementById('cart-count').textContent=n;
+}
+
+function renderCart(){
+  appliedCode=null;
+  document.getElementById('code-input').value='';
+  document.getElementById('code-msg').textContent='';
+  document.getElementById('os-disc-line').style.display='none';
+
+  const cart=getCart();
+  const emptyEl=document.getElementById('cart-empty-state');
+  const mainEl=document.getElementById('cart-main');
+  if(!cart.length){emptyEl.style.display='block';mainEl.style.display='none';return;}
+  emptyEl.style.display='none';mainEl.style.display='grid';
+
+  const all=[...FIGURES,...CARS];
+  let subtotal=0;
+  document.getElementById('cart-items-list').innerHTML=cart.map(c=>{
+    const p=all.find(x=>x.id===c.id);
+    if(!p) return '';
+    const line=p.price*c.qty;
+    subtotal+=line;
+    return `<div class="cart-item-card">
+      <div class="ci-emoji" style="background:${p.bg}">${p.emoji}</div>
+      <div class="ci-info">
+        <div class="ci-name">${p.name}</div>
+        <div class="ci-pts">+${Math.floor(line)} pts</div>
+      </div>
+      <div class="ci-price">$${line.toFixed(2)}</div>
+      <button class="ci-remove" onclick="removeFromCart('${c.id}')">✕</button>
+    </div>`;
+  }).join('');
+  updateSummary(subtotal);
+}
+
+function removeFromCart(id){
+  let cart=getCart().filter(c=>c.id!==id);
+  saveCart(cart);
+  updateCartBadge();
+  renderCart();
+}
+
+function calcDiscount(code,subtotal){
+  if(!code) return 0;
+  if(code.discType==='pct') return parseFloat(((subtotal*code.amount)/100).toFixed(2));
+  return Math.min(code.amount, subtotal);
+}
+
+function updateSummary(subtotal){
+  const disc = appliedCode ? calcDiscount(appliedCode, subtotal) : 0;
+  const total = Math.max(0, subtotal-disc);
+  const pts = Math.floor(total);
+  document.getElementById('os-subtotal').textContent='$'+subtotal.toFixed(2);
+  document.getElementById('os-total').textContent='$'+total.toFixed(2);
+  document.getElementById('os-pts').textContent=pts+' pts';
+  if(disc>0){
+    document.getElementById('os-disc-line').style.display='flex';
+    const label = appliedCode.discType==='pct' ? `${appliedCode.amount}% off` : `$${disc.toFixed(2)} off`;
+    document.getElementById('os-disc').textContent='-$'+disc.toFixed(2)+' ('+label+')';
+  }
+}
+
+function applyCode(){
+  const raw=document.getElementById('code-input').value.trim().toUpperCase();
+  if(!raw){toast('Enter a code.','error');return;}
+  const codes=getCodes();
+  const code=codes.find(c=>c.code===raw);
+  const msg=document.getElementById('code-msg');
+  if(!code){msg.style.color='var(--danger)';msg.textContent='❌ Code not found.';return;}
+
+  // Check email lock
+  const email=(document.getElementById('checkout-email').value||'').trim().toLowerCase();
+  if(code.lockedEmail && email && code.lockedEmail!==email){
+    msg.style.color='var(--danger)';msg.textContent='❌ This code is locked to a different email.';return;
+  }
+
+  // Check usage
+  if(code.usageType==='once' && code.usedCount>=1){
+    msg.style.color='var(--danger)';msg.textContent='❌ This code has already been used.';return;
+  }
+  if(code.usageType==='limited' && code.usedCount>=code.maxUses){
+    msg.style.color='var(--danger)';msg.textContent='❌ This code has reached its maximum uses.';return;
+  }
+
+  appliedCode=code;
+  const cart=getCart();
+  const all=[...FIGURES,...CARS];
+  const subtotal=cart.reduce((s,c)=>{const p=all.find(x=>x.id===c.id);return s+(p?p.price*c.qty:0);},0);
+  updateSummary(subtotal);
+  msg.style.color='var(--success)';
+  const label=code.discType==='pct'?`${code.amount}% off`:`$${code.amount} off`;
+  msg.textContent=`✅ Code applied — ${label}! ${code.usageType==='unlimited'?'(Friends & Family)':code.usageType==='limited'?`(${code.usedCount+1}/${code.maxUses} uses)`:''} `;
+  toast('Discount applied! 🎉','success');
+}
+
+function checkout(){
+  const email=document.getElementById('checkout-email').value.trim().toLowerCase();
+  if(!email||!email.includes('@')){toast('Please enter your email.','error');return;}
+  const cart=getCart();
+  if(!cart.length){toast('Cart is empty!','error');return;}
+
+  const all=[...FIGURES,...CARS];
+  const subtotal=cart.reduce((s,c)=>{const p=all.find(x=>x.id===c.id);return s+(p?p.price*c.qty:0);},0);
+  const disc=appliedCode?calcDiscount(appliedCode,subtotal):0;
+  const total=Math.max(0,subtotal-disc);
+  const pts=Math.floor(total);
+
+  // Mark code used
+  if(appliedCode){
+    const codes=getCodes();
+    const idx=codes.findIndex(c=>c.id===appliedCode.id);
+    if(idx>=0){
+      codes[idx].usedCount=(codes[idx].usedCount||0)+1;
+      if(!codes[idx].usedBy) codes[idx].usedBy=[];
+      codes[idx].usedBy.push({email,date:new Date().toISOString()});
+      saveCodes(codes);
+    }
+  }
+
+  // Update user
+  const users=getUsers();
+  if(!users[email]) users[email]={email,points:0,watchlist:[],orders:[]};
+  users[email].points+=pts;
+  users[email].orders.unshift({
+    date:new Date().toLocaleDateString(),
+    items:cart.map(c=>{const p=all.find(x=>x.id===c.id);return p?p.name:'?';}),
+    total,pts,discount:disc
+  });
+  saveUsers(users);
+
+  // Add to subscribers
+  const subs=getSubs();
+  if(!subs.find(s=>s.email===email)){
+    subs.push({email,name:'',source:'checkout',date:new Date().toLocaleDateString(),watchlist:[]});
+    saveSubs(subs);
+  }
+
+  saveCart([]);
+  appliedCode=null;
+  updateCartBadge();
+
+  document.getElementById('success-msg').textContent=
+    `You earned ${pts} Vault Points! Order total: $${total.toFixed(2)}. Thanks for supporting Shelf Space Crisis 🙏`;
+  openOverlay('success-overlay');
+}
+
+// ═══════════════════════════════════════════════════════
+//  NOTIFY
+// ═══════════════════════════════════════════════════════
+let _notifyId=null;
+function openNotify(id,name){
+  _notifyId=id;
+  document.getElementById('notify-desc').textContent=`We'll hit you up the second "${name}" drops back in! Real talk, no spam.`;
+  document.getElementById('n-name').value='';
+  document.getElementById('n-email').value='';
+  openOverlay('notify-overlay');
+}
+function submitNotify(){
+  const name=document.getElementById('n-name').value.trim();
+  const email=document.getElementById('n-email').value.trim().toLowerCase();
+  if(!email||!email.includes('@')){toast('Enter a valid email.','error');return;}
+  const p=[...FIGURES,...CARS].find(x=>x.id===_notifyId);
+  const users=getUsers();
+  if(!users[email]) users[email]={email,points:0,watchlist:[],orders:[]};
+  if(!users[email].watchlist.includes(p.name)) users[email].watchlist.push(p.name);
+  if(name&&!users[email].name) users[email].name=name;
+  saveUsers(users);
+  const subs=getSubs();
+  const ex=subs.find(s=>s.email===email);
+  if(ex){if(!ex.watchlist)ex.watchlist=[];if(!ex.watchlist.includes(p.name))ex.watchlist.push(p.name);if(name)ex.name=name;}
+  else subs.push({email,name,source:'watchlist',date:new Date().toLocaleDateString(),watchlist:[p.name]});
+  saveSubs(subs);
+  closeOverlay('notify-overlay');
+  toast('You\'re on the list! 🔔','success');
+}
+
+function globalSignup(){
+  const email=document.getElementById('global-email').value.trim().toLowerCase();
+  if(!email||!email.includes('@')){toast('Enter a valid email.','error');return;}
+  const subs=getSubs();
+  if(subs.find(s=>s.email===email)){toast('Already subscribed!','info');return;}
+  subs.push({email,name:'',source:'newsletter',date:new Date().toLocaleDateString(),watchlist:[]});
+  saveSubs(subs);
+  document.getElementById('global-email').value='';
+  toast('Subscribed! Drop alerts incoming 🎯','success');
+}
+
+// ═══════════════════════════════════════════════════════
+//  GIVEAWAYS
+// ═══════════════════════════════════════════════════════
+function renderGiveaways(){
+  const gw=getGiveaway();
+  const winners=getWinners();
+  document.getElementById('current-giveaway-prize').textContent='Current Prize: '+gw.prize;
+  startCountdown(new Date(gw.end));
+
+  const grid=document.getElementById('past-winners-grid');
+  const empty=document.getElementById('winners-empty');
+  if(!winners.length){grid.style.display='none';empty.style.display='block';}
+  else{
+    grid.style.display='grid';empty.style.display='none';
+    grid.innerHTML=winners.map(w=>`
+      <div class="pw-card">
+        <div class="pw-trophy">🏆</div>
+        <div class="pw-info">
+          <div class="pw-name">${w.name}</div>
+          <div class="pw-prize">${w.prize}</div>
+          <div class="pw-date">${w.date}</div>
+        </div>
+      </div>`).join('');
+  }
+}
+
+function enterGiveaway(){
+  const name=document.getElementById('gwa-name').value.trim();
+  const email=document.getElementById('gwa-email').value.trim().toLowerCase();
+  const ig=document.getElementById('gwa-ig').value.trim();
+  if(!name||!email||!ig){toast('Fill in all fields!','error');return;}
+  if(!email.includes('@')){toast('Check your email address.','error');return;}
+  const entries=getEntries();
+  if(entries.find(e=>e.email===email)){toast('You\'re already entered!','info');return;}
+  entries.push({name,email,ig,date:new Date().toLocaleDateString()});
+  saveEntries(entries);
+  document.getElementById('gwa-name').value='';
+  document.getElementById('gwa-email').value='';
+  document.getElementById('gwa-ig').value='';
+  openOverlay('entry-overlay');
+}
+
+let countdownInterval=null;
+function startCountdown(endDate){
+  if(countdownInterval) clearInterval(countdownInterval);
+  function tick(){
+    const now=new Date();
+    const diff=endDate-now;
+    if(diff<=0){
+      document.getElementById('cd-d').textContent='00';
+      document.getElementById('cd-h').textContent='00';
+      document.getElementById('cd-m').textContent='00';
+      document.getElementById('cd-s').textContent='00';
+      return;
+    }
+    const d=Math.floor(diff/86400000);
+    const h=Math.floor((diff%86400000)/3600000);
+    const m=Math.floor((diff%3600000)/60000);
+    const s=Math.floor((diff%60000)/1000);
+    document.getElementById('cd-d').textContent=String(d).padStart(2,'0');
+    document.getElementById('cd-h').textContent=String(h).padStart(2,'0');
+    document.getElementById('cd-m').textContent=String(m).padStart(2,'0');
+    document.getElementById('cd-s').textContent=String(s).padStart(2,'0');
+  }
+  tick();
+  countdownInterval=setInterval(tick,1000);
+}
+
+// ═══════════════════════════════════════════════════════
+//  ACCOUNT
+// ═══════════════════════════════════════════════════════
+function loadAccount(){
+  const email=document.getElementById('acct-email-input').value.trim().toLowerCase();
+  if(!email||!email.includes('@')){toast('Enter a valid email.','error');return;}
+  const users=getUsers();
+  const u=users[email]||{points:0,watchlist:[],orders:[]};
+  document.getElementById('acct-pts').textContent=u.points.toLocaleString();
+  document.getElementById('acct-pts-sub').textContent=u.points>=100?`Worth $${(u.points/100).toFixed(2)} in rewards!`:'Keep shopping to earn!';
+  const wl=document.getElementById('acct-watchlist');
+  wl.innerHTML=u.watchlist&&u.watchlist.length
+    ?u.watchlist.map(n=>`<li class="wl-item">🔔 <span>${n}</span><button class="wl-rm" onclick="removeWatchlist('${email}','${n}')">✕</button></li>`).join('')
+    :'<li class="empty-note">Nothing on your watchlist.</li>';
+  const oh=document.getElementById('acct-orders');
+  oh.innerHTML=u.orders&&u.orders.length
+    ?u.orders.map(o=>`<li class="order-row"><div><div class="or-name">${o.items.join(', ')}</div><div class="or-pts">+${o.pts} pts</div></div><div class="or-price">$${o.total.toFixed(2)}</div><div style="font-size:12px;color:var(--muted);">${o.date}</div></li>`).join('')
+    :'<li class="empty-note">No orders yet!</li>';
+}
+function removeWatchlist(email,name){
+  const users=getUsers();
+  if(users[email]) users[email].watchlist=users[email].watchlist.filter(w=>w!==name);
+  saveUsers(users);
+  const subs=getSubs();
+  const s=subs.find(x=>x.email===email);
+  if(s&&s.watchlist) s.watchlist=s.watchlist.filter(w=>w!==name);
+  saveSubs(subs);
+  loadAccount();
+  toast('Removed from watchlist.');
+}
+
+// ═══════════════════════════════════════════════════════
+//  ADMIN
+// ═══════════════════════════════════════════════════════
+let adminAuthed=false;
+function adminLogin(){
+  const pw=document.getElementById('admin-pw').value;
+  if(pw===(ls.get('admin_pw','shelfcrisis'))){
+    adminAuthed=true;
+    document.getElementById('admin-lock-screen').style.display='none';
+    document.getElementById('admin-dashboard').style.display='block';
+    renderAdminDashboard();
+  } else toast('Wrong password.','error');
+}
+function adminLogout(){
+  adminAuthed=false;
+  document.getElementById('admin-lock-screen').style.display='block';
+  document.getElementById('admin-dashboard').style.display='none';
+  document.getElementById('admin-pw').value='';
+}
+function renderAdmin(){if(adminAuthed) renderAdminDashboard();}
+
+function renderAdminDashboard(){
+  const codes=getCodes();
+  const subs=getSubs();
+  const users=getUsers();
+  const entries=getEntries();
+  const gw=getGiveaway();
+  const stock=getStock();
+
+  // Stats
+  document.getElementById('st-codes').textContent=codes.length;
+  document.getElementById('st-avail').textContent=codes.filter(c=>{
+    if(c.usageType==='unlimited') return true;
+    if(c.usageType==='once') return (c.usedCount||0)<1;
+    return (c.usedCount||0)<(c.maxUses||1);
+  }).length;
+  document.getElementById('st-used').textContent=codes.reduce((s,c)=>s+(c.usedCount||0),0);
+  document.getElementById('st-subs').textContent=subs.length;
+
+  // Stock select
+  const sp=document.getElementById('stock-product');
+  sp.innerHTML=[...FIGURES,...CARS].map(p=>`<option value="${p.id}">${p.emoji} ${p.name} — ${stock[p.id]?'✅ IN':'❌ OUT'}</option>`).join('');
+
+  // Giveaway fields
+  document.getElementById('gw-prize').value=gw.prize||'';
+  if(gw.end) document.getElementById('gw-end').value=new Date(gw.end).toISOString().split('T')[0];
+
+  // Codes table
+  const ct=document.getElementById('codes-tbody');
+  const ce=document.getElementById('codes-empty');
+  if(!codes.length){ct.innerHTML='';ce.style.display='block';}
+  else{
+    ce.style.display='none';
+    ct.innerHTML=codes.map(c=>{
+      const isExhausted=(c.usageType==='once'&&(c.usedCount||0)>=1)||(c.usageType==='limited'&&(c.usedCount||0)>=(c.maxUses||1));
+      const usageLbl=c.usageType==='unlimited'?'<span class="badge unlimited">∞ Unlimited</span>':c.usageType==='limited'?`<span class="badge limited">${c.usedCount||0}/${c.maxUses}</span>`:'<span class="badge '+(isExhausted?'used':'avail')+'">'+(isExhausted?'USED':'1-time')+'</span>';
+      return `<tr>
+        <td class="code-cell">${c.code}</td>
+        <td><span class="badge ${c.discType==='pct'?'limited':'avail'}">${c.discType==='pct'?'%':'$'}</span></td>
+        <td>${c.discType==='pct'?c.amount+'%':'$'+c.amount}</td>
+        <td>${usageLbl}</td>
+        <td style="color:var(--muted);">${c.usedCount||0}</td>
+        <td style="color:var(--muted);font-size:11px;">${c.lockedEmail||'—'}</td>
+        <td style="color:var(--muted);font-size:11px;max-width:150px;">${c.note||'—'}</td>
+        <td style="color:var(--muted);font-size:11px;">${new Date(c.createdAt).toLocaleDateString()}</td>
+        <td><button class="del-btn" onclick="deleteCode('${c.id}')">Delete</button></td>
+      </tr>`;
+    }).join('');
+  }
+
+  // Subs table
+  const allEmails=new Set([...subs.map(s=>s.email),...Object.keys(users)]);
+  const st=document.getElementById('subs-tbody');
+  const se=document.getElementById('subs-empty');
+  const rows=[...allEmails].map(email=>{
+    const sub=subs.find(s=>s.email===email);
+    const user=users[email]||{};
+    const wl=[...new Set([...(sub?.watchlist||[]),...(user.watchlist||[])])];
+    const name=user.name||sub?.name||'—';
+    const date=sub?.date||user.orders?.[0]?.date||'—';
+    return `<tr>
+      <td><div style="font-weight:600;">${name}</div><div style="color:var(--muted);font-size:11px;">${email}</div></td>
+      <td>${wl.length?wl.map(w=>`<span style="font-size:10px;background:var(--blue-dim);color:var(--blue);padding:2px 6px;border-radius:3px;margin:1px;display:inline-block;">${w}</span>`).join(''):'<span style="color:var(--muted);font-size:11px;">None</span>'}</td>
+      <td style="color:var(--muted);">${user.orders?.length||0}</td>
+      <td style="color:var(--gold);">${(user.points||0).toLocaleString()}</td>
+      <td style="color:var(--muted);font-size:11px;">${sub?.source||'checkout'}</td>
+      <td style="color:var(--muted);font-size:11px;">${date}</td>
+    </tr>`;
+  });
+  if(!rows.length){st.innerHTML='';se.style.display='block';}
+  else{se.style.display='none';st.innerHTML=rows.join('');}
+
+  // Entries table
+  const et=document.getElementById('entries-tbody');
+  const ee=document.getElementById('entries-empty');
+  if(!entries.length){et.innerHTML='';ee.style.display='block';}
+  else{
+    ee.style.display='none';
+    et.innerHTML=entries.map(e=>`<tr>
+      <td style="font-weight:600;">${e.name}</td>
+      <td style="color:var(--muted);font-size:12px;">${e.email}</td>
+      <td style="color:var(--pink);">${e.ig}</td>
+      <td style="color:var(--muted);font-size:11px;">${e.date}</td>
+    </tr>`).join('');
+  }
+}
+
+function toggleUsageLimit(){
+  const v=document.getElementById('gen-usage').value;
+  document.getElementById('gen-uses').style.display=v==='limited'?'block':'none';
+}
+
+function generateCode(){
+  const note=document.getElementById('gen-note').value.trim();
+  const discType=document.getElementById('gen-type').value;
+  const amount=parseFloat(document.getElementById('gen-amount').value)||10;
+  const usageType=document.getElementById('gen-usage').value;
+  const maxUses=parseInt(document.getElementById('gen-uses').value)||5;
+  const lockedEmail=(document.getElementById('gen-email').value||'').trim().toLowerCase();
+
+  const id=crypto.randomUUID();
+  const code='SSC-'+Math.random().toString(36).substring(2,6).toUpperCase()+'-'+Math.random().toString(36).substring(2,6).toUpperCase();
+  const entry={id,code,discType,amount,usageType,maxUses:usageType==='limited'?maxUses:null,lockedEmail:lockedEmail||null,note,usedCount:0,usedBy:[],createdAt:new Date().toISOString()};
+  const codes=getCodes();
+  codes.push(entry);
+  saveCodes(codes);
+
+  const amtLabel=discType==='pct'?`${amount}% off`:`$${amount} off`;
+  const usageLabel=usageType==='unlimited'?'Unlimited uses':usageType==='limited'?`${maxUses} uses max`:'One-time use';
+  document.getElementById('gen-code-val').textContent=code;
+  document.getElementById('gen-code-meta').textContent=`${amtLabel} · ${usageLabel}${lockedEmail?' · Locked to '+lockedEmail:''}`;
+  document.getElementById('gen-code-box').style.display='block';
+  renderAdminDashboard();
+  toast('Code generated! 🎟️','success');
+}
+
+function copyCode(){
+  const code=document.getElementById('gen-code-val').textContent;
+  navigator.clipboard.writeText(code).then(()=>toast('Copied!','success'));
+}
+
+function deleteCode(id){
+  if(!confirm('Delete this code?')) return;
+  saveCodes(getCodes().filter(c=>c.id!==id));
+  renderAdminDashboard();
+  toast('Code deleted.','info');
+}
+
+function updateStock(){
+  const pid=document.getElementById('stock-product').value;
+  const inStock=document.getElementById('stock-status').value==='in';
+  const stock=getStock(); stock[pid]=inStock; saveStock(stock);
+  const p=[...FIGURES,...CARS].find(x=>x.id===pid);
+  const users=getUsers();
+  let count=0;
+  if(inStock) Object.values(users).forEach(u=>{if(u.watchlist&&u.watchlist.includes(p.name)) count++;});
+  const res=document.getElementById('stock-result');
+  res.style.display='block';
+  res.textContent=inStock?`✅ "${p.name}" is now IN STOCK. ${count} watcher(s) would be emailed.`:`❌ "${p.name}" is now OUT OF STOCK.`;
+  renderAdminDashboard();
+  if(currentView==='shop') renderFigures();
+  if(currentView==='cars') renderCars();
+  toast('Stock updated!','success');
+}
+
+function updateGiveaway(){
+  const prize=document.getElementById('gw-prize').value.trim();
+  const endVal=document.getElementById('gw-end').value;
+  if(!prize||!endVal){toast('Fill in prize and end date.','error');return;}
+  saveGiveaway({prize,end:new Date(endVal).toISOString()});
+  if(currentView==='giveaways') renderGiveaways();
+  toast('Giveaway updated!','success');
+}
+
+function pickWinner(){
+  const entries=getEntries();
+  if(!entries.length){toast('No entries yet!','error');return;}
+  const winner=entries[Math.floor(Math.random()*entries.length)];
+  const gw=getGiveaway();
+  const winners=getWinners();
+  winners.unshift({name:winner.name,ig:winner.ig,prize:gw.prize,date:new Date().toLocaleDateString()});
+  saveWinners(winners);
+  const res=document.getElementById('gw-result');
+  res.style.display='block';
+  res.textContent=`🏆 Winner: ${winner.name} (${winner.ig}) — DM them on Instagram!`;
+  toast(`🏆 ${winner.name} won the giveaway!`,'success');
+  if(currentView==='giveaways') renderGiveaways();
+}
+
+// ═══════════════════════════════════════════════════════
+//  OVERLAYS / TOASTS
+// ═══════════════════════════════════════════════════════
+function openOverlay(id){document.getElementById(id).classList.add('open');}
+function closeOverlay(id){document.getElementById(id).classList.remove('open');}
+function toast(msg,type=''){
+  const el=document.createElement('div');
+  el.className='toast '+(type||'');
+  el.textContent=msg;
+  document.getElementById('toasts').appendChild(el);
+  setTimeout(()=>el.remove(),3000);
+}
+
+// ═══════════════════════════════════════════════════════
+//  INIT
+// ═══════════════════════════════════════════════════════
+updateCartBadge();
+renderFigures();
+</script>
+</body>
+</html>
